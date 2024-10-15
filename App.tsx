@@ -1,8 +1,25 @@
 import React from 'react';
 import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signIn';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+
+const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
-  return <SignInScreen />;
+  return (
+    <>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="SplashScreen"
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Stack.Screen name="SplashScreen" component={SplashScreen} />
+          <Stack.Screen name="SignInScreen" component={SignInScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
+  );
 }
 export default App;
