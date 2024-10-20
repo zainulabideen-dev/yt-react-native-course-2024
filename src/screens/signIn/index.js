@@ -9,7 +9,7 @@ import {
 import React from 'react';
 import CountryCodesMd from '../../modal/CountryCodesMd';
 
-export default function SignInScreen() {
+export default function SignInScreen({navigation}) {
   return (
     <SafeAreaView style={{flex: 1}}>
       <CountryCodesMd />
@@ -35,7 +35,8 @@ export default function SignInScreen() {
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
           }}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('PhoneAuthScreen')}>
             <View
               style={{
                 backgroundColor: '#01e784',
