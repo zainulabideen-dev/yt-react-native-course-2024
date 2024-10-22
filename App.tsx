@@ -3,7 +3,7 @@ import SplashScreen from './src/screens/splash';
 import SignInScreen from './src/screens/signIn';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
-import PhoneAuthScreen from './src/screens/PhoneAuth.js';
+import PhoneAuthScreen from './src/screens/PhoneAuth';
 
 const Stack = createNativeStackNavigator();
 
