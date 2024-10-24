@@ -12,7 +12,6 @@ import CountryCodesMd from '../../modal/CountryCodesMd';
 export default function SignInScreen({navigation}) {
   return (
     <SafeAreaView style={{flex: 1}}>
-      <CountryCodesMd />
       <View style={{flex: 1}}>
         <Image
           style={{

@@ -5,20 +5,35 @@ import {
   TouchableOpacity,
   TextInput,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import CountryCodesMd from '../../modal/CountryCodesMd';
 
 export default function PhoneAuthScreen({navigation}) {
+  const [mdVisible, setMdVisible] = useState(false);
+  const [countryCode, setCountryCode] = useState({
+    country: 'Afghanistan',
+    code: '+93',
+    emoji: '🇦🇫',
+  });
+
   return (
     <SafeAreaView
       style={{
         flex: 1,
         backgroundColor: 'white',
-        padding: 15,
       }}>
-      <View style={{flex: 0.5}}>
+      <CountryCodesMd
+        show={mdVisible}
+        hideModal={() => setMdVisible(false)}
+        onSelected={item => {
+          setCountryCode(item);
+          setMdVisible(false);
+        }}
+      />
+      <View style={{flex: 0.5, padding: 15}}>
         <View
           style={{
             flexDirection: 'row',
@@ -72,15 +87,19 @@ export default function PhoneAuthScreen({navigation}) {
             borderBottomWidth: 1,
             borderBottomColor: 'black',
           }}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Text style={{marginRight: 10}}>🇵🇰</Text>
-            <FontAwesome name="caret-down" size={20} color="#aab7b8" />
-            <Text style={{color: 'black', marginLeft: 10}}>+92</Text>
-          </View>
+          <TouchableOpacity onPress={() => setMdVisible(!mdVisible)}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+              }}>
+              <Text style={{marginRight: 10}}>{countryCode.emoji}</Text>
+              <FontAwesome name="caret-down" size={20} color="#aab7b8" />
+              <Text style={{color: 'black', marginLeft: 10}}>
+                {countryCode.code}
+              </Text>
+            </View>
+          </TouchableOpacity>
           <View
             style={{
               marginLeft: 10,
@@ -92,7 +111,7 @@ export default function PhoneAuthScreen({navigation}) {
           </View>
         </View>
       </View>
-      <View style={{flex: 0.5, justifyContent: 'flex-end'}}>
+      <View style={{flex: 0.5, justifyContent: 'flex-end', padding: 15}}>
         <View
           style={{
             backgroundColor: '#d5dbdb',
