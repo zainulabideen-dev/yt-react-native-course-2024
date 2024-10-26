@@ -10,14 +10,21 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import CountryCodesMd from '../../modal/CountryCodesMd';
+import {_apiSendOtp} from '../../config/api';
 
 export default function PhoneAuthScreen({navigation}) {
   const [mdVisible, setMdVisible] = useState(false);
+  const [number, setNumber] = useState('');
+  const [continueOtpEnabled, setContinueOtpEnabled] = useState(false);
   const [countryCode, setCountryCode] = useState({
-    country: 'Afghanistan',
-    code: '+93',
-    emoji: '🇦🇫',
+    country: 'Pakistan',
+    code: '+92',
+    emoji: '🇵🇰',
   });
+
+  async function sendOtp() {
+    await _apiSendOtp();
+  }
 
   return (
     <SafeAreaView
@@ -107,26 +114,33 @@ export default function PhoneAuthScreen({navigation}) {
             <TextInput
               placeholder="enter your number"
               keyboardType="phone-pad"
+              onChangeText={text => {
+                setNumber(text);
+                if (text.length >= 9) setContinueOtpEnabled(true);
+                else setContinueOtpEnabled(false);
+              }}
             />
           </View>
         </View>
       </View>
       <View style={{flex: 0.5, justifyContent: 'flex-end', padding: 15}}>
-        <View
-          style={{
-            backgroundColor: '#d5dbdb',
-            padding: 15,
-            borderRadius: 25,
-          }}>
-          <Text
+        <TouchableOpacity onPress={() => sendOtp()}>
+          <View
             style={{
-              textAlign: 'center',
-              fontWeight: '700',
-              color: '#aab7b8',
+              backgroundColor: continueOtpEnabled ? '#37b44e' : '#d5dbdb',
+              padding: 15,
+              borderRadius: 25,
             }}>
-            Continue
-          </Text>
-        </View>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontWeight: '700',
+                color: continueOtpEnabled ? 'white' : '#aab7b8',
+              }}>
+              Continue
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
