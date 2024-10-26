@@ -10,7 +10,7 @@ export async function _apiSendOtp() {
   let config = {
     method: 'post',
     maxBodyLength: Infinity,
-    url: 'https://api.twilio.com/2010-04-01/Accounts/ACbc655db2d19fea8064bb991abae3bd12/Messages.json',
+    url: 'your-base-url',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       Authorization: 'your-auth-token',
