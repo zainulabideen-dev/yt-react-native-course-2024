@@ -4,7 +4,7 @@ export async function _apiSendOtp() {
   let data = {
     To: 'whatsapp:+923120256369',
     From: 'whatsapp:+14155238886',
-    ContentSid: 'HX229f5a04fd0510ce1b071852155d3e75',
+    ContentSid: 'your-content-sid',
     ContentVariables: '{"1":"409173"}',
   };
   let config = {
@@ -13,8 +13,7 @@ export async function _apiSendOtp() {
     url: 'https://api.twilio.com/2010-04-01/Accounts/ACbc655db2d19fea8064bb991abae3bd12/Messages.json',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization:
-        'Basic QUNiYzY1NWRiMmQxOWZlYTgwNjRiYjk5MWFiYWUzYmQxMjo3MWJjOWY1YmE2YzYzMWFiNGU0OWEwNjUzZDdjNzhmNQ==',
+      Authorization: 'your-auth-token',
     },
     data: data,
   };
