@@ -1,10 +1,11 @@
 import axios from 'axios';
+import {WHATS_APP_SID, WHATS_AUTH_TOKEN} from '@env';
 
 export async function _apiSendOtp() {
   let data = {
     To: 'whatsapp:+923120256369',
     From: 'whatsapp:+14155238886',
-    ContentSid: 'your-content-sid',
+    ContentSid: WHATS_APP_SID,
     ContentVariables: '{"1":"409173"}',
   };
   let config = {
@@ -13,7 +14,7 @@ export async function _apiSendOtp() {
     url: 'https://api.twilio.com/2010-04-01/Accounts/ACbc655db2d19fea8064bb991abae3bd12/Messages.json',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      Authorization: 'your-auth-token',
+      Authorization: WHATS_AUTH_TOKEN,
     },
     data: data,
   };
