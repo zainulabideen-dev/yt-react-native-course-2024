@@ -4,8 +4,6 @@ import OTPTextInput from 'react-native-otp-textinput';
 import NavHeaderComp from '../../components/NavHeaderComp';
 
 export default function VerifyOTPScreen({navigation, route}) {
-  // video 13
-  // otp flow
   const [timeLeft, setTimeLeft] = useState(120);
   let otpInput = useRef(null);
   const {phone} = route.params;
