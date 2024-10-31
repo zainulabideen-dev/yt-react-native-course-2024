@@ -6,7 +6,7 @@ import NavHeaderComp from '../../components/NavHeaderComp';
 export default function VerifyOTPScreen({navigation, route}) {
   const [timeLeft, setTimeLeft] = useState(120);
   let otpInput = useRef(null);
-  const {phone} = route.params;
+  const {phone, otpCode} = route.params;
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -33,6 +33,14 @@ export default function VerifyOTPScreen({navigation, route}) {
     otpInput.current.setValue('1234');
   };
 
+  function submitOtp(code) {
+    if (code.length == 4) {
+      if (code == otpCode) {
+        navigation.replace('HomeScreen');
+      }
+    }
+  }
+
   return (
     <SafeAreaView style={{flex: 1, padding: 15}}>
       <NavHeaderComp navigation={navigation} />
@@ -52,7 +60,8 @@ export default function VerifyOTPScreen({navigation, route}) {
       <View style={{marginTop: 20}}>
         <OTPTextInput
           tintColor={'black'}
-          ref={e => (this.otpInput = e)}></OTPTextInput>
+          handleTextChange={text => submitOtp(text)}
+          ref={e => (otpInput = e)}></OTPTextInput>
       </View>
       <Text style={{marginTop: 20, fontSize: 16, textAlign: 'center'}}>
         {`Resend code ${formatTime()}`}
