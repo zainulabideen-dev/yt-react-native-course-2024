@@ -40,7 +40,7 @@ export default function VerifyOTPScreen({navigation, route}) {
       }
     }
   }
-
+  
   return (
     <SafeAreaView style={{flex: 1, padding: 15}}>
       <NavHeaderComp navigation={navigation} />
