@@ -21,11 +21,21 @@ export default function PhoneAuthScreen({navigation}) {
     emoji: '🇵🇰',
   });
 
+  function generateOTP() {
+    return Math.floor(1000 + Math.random() * 9000).toString();
+  }
+
   async function sendOtp() {
-    // await _apiSendOtp();
-    navigation.navigate('VerifyOTPScreen', {
-      phone: countryCode.code + '' + number,
-    });
+    if (!continueOtpEnabled) return;
+    const phone = countryCode.code + '' + number;
+    const otpCode = generateOTP();
+    const response = await _apiSendOtp(phone, otpCode);
+    if (response) {
+      navigation.navigate('VerifyOTPScreen', {
+        phone: countryCode.code + '' + number,
+        otpCode,
+      });
+    }
   }
 
   return (
