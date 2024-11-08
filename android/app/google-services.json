@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "48967609926",
+    "project_id": "careemcloneapp-20a63",
+    "storage_bucket": "careemcloneapp-20a63.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48967609926:android:3ea83ccbf8eed4060ca447",
+        "android_client_info": {
+          "package_name": "com.careemclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48967609926-2l904lq0iepk8sm8fn213k3nvkihg57h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.careemclone",
+            "certificate_hash": "46f203ab933d4ddcf038f1f12820b154826b3670"
+          }
+        },
+        {
+          "client_id": "48967609926-b48enbf5kbl8akq5oqgiqaebsf5g05s6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtwRNbW70r2MD__z4O8IphKKFvGo1tPOc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48967609926-b48enbf5kbl8akq5oqgiqaebsf5g05s6.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "48967609926-k4j69cv64fkfdojni1vpmrh8a9a0g13m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.CareemClone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

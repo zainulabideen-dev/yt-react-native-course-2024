@@ -6,10 +6,14 @@ import {
   SafeAreaView,
   Platform,
 } from 'react-native';
-import React from 'react';
-import CountryCodesMd from '../../modal/CountryCodesMd';
+import React, {useEffect} from 'react';
+import {onGoogleButtonPress} from '../../config/firebase';
 
 export default function SignInScreen({navigation}) {
+  async function _sginInWithGoogle() {
+    const user = await onGoogleButtonPress();
+    console.log(user);
+  }
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={{flex: 1}}>
@@ -51,7 +55,7 @@ export default function SignInScreen({navigation}) {
               </Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => _sginInWithGoogle()}>
             <View
               style={{
                 backgroundColor: 'white',
