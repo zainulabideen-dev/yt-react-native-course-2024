@@ -8,11 +8,19 @@ import {
 } from 'react-native';
 import React, {useEffect} from 'react';
 import {onGoogleButtonPress} from '../../config/firebase';
+import {asyncStoreDataLocally} from '../../config/localStorage';
+import {localAsyncKeys} from '../../assets/local';
 
 export default function SignInScreen({navigation}) {
   async function _sginInWithGoogle() {
     const user = await onGoogleButtonPress();
-    console.log(user);
+    const loginData = {
+      Platform: 'Google',
+      data: user,
+    };
+    const jsonValue = JSON.stringify(loginData);
+    const stored = await asyncStoreDataLocally(localAsyncKeys.user, jsonValue);
+    if (stored) navigation.navigate('HomeScreen');
   }
   return (
     <SafeAreaView style={{flex: 1}}>

@@ -1,12 +1,21 @@
 import {View, Image, StatusBar} from 'react-native';
 import React, {useEffect} from 'react';
+import {getAsyncLocalData} from '../../config/localStorage';
+import {localAsyncKeys} from '../../assets/local';
 
 export default function SplashScreen({navigation}) {
   useEffect(() => {
     setTimeout(() => {
-      navigation.navigate('SignInScreen');
+      checkUserLoggedIn();
     }, 2000);
   }, []);
+
+  async function checkUserLoggedIn() {
+    //JSON.parse(jsonValue)
+    const user = await getAsyncLocalData(localAsyncKeys.user);
+    if (user) navigation.navigate('HomeScreen');
+    else navigation.navigate('SignInScreen');
+  }
   return (
     <View
       style={{

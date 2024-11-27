@@ -1,3 +1,7 @@
+export const localAsyncKeys = {
+  user: 'async-user',
+};
+
 export const countryCodeList = {
   A: [
     {country: 'Afghanistan', code: '+93', emoji: '🇦🇫'},
