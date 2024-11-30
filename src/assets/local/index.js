@@ -2,6 +2,41 @@ export const localAsyncKeys = {
   user: 'async-user',
 };
 
+export const homeNavList = [
+  {
+    image: require('../../assets/car.png'),
+    label: 'Car',
+  },
+  {
+    image: require('../../assets/flexi.png'),
+    label: 'Flexi',
+  },
+  {
+    image: require('../../assets/prem-car.png'),
+    label: 'Premium Car',
+  },
+  {
+    image: require('../../assets/bike.png'),
+    label: 'Bike',
+  },
+  {
+    image: require('../../assets/right-click.png'),
+    label: 'Right Click',
+  },
+  {
+    image: require('../../assets/delivery-bike.png'),
+    label: 'Delivery',
+  },
+  {
+    image: require('../../assets/arrow-left.png'),
+    label: 'Pay someone',
+  },
+  {
+    image: require('../../assets/arrow-right.png'),
+    label: 'Request Money',
+  },
+];
+
 export const countryCodeList = {
   A: [
     {country: 'Afghanistan', code: '+93', emoji: '🇦🇫'},
