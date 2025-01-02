@@ -37,6 +37,21 @@ export const homeNavList = [
   },
 ];
 
+export const topOfferImages = [
+  {
+    image: require('../../assets/top-offer-one.png'),
+  },
+  {
+    image: require('../../assets/top-offer-two.png'),
+  },
+];
+
+export const addsImages = [
+  {
+    image: require('../../assets/adds.jpeg'),
+  },
+];
+
 export const countryCodeList = {
   A: [
     {country: 'Afghanistan', code: '+93', emoji: '🇦🇫'},
